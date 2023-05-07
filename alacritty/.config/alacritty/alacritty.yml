@@ -6,8 +6,8 @@ env:
 import:
 #  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
 #  - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
- - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
+ # - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
+ - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
 
 window:
   padding:
