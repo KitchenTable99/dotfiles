@@ -18,6 +18,7 @@ abbr tn "tmux new -s (pwd | sed 's/.*\///g')"
 abbr lg 'lazygit'
 abbr gp 'git push'
 abbr gl 'git pull'
+abbr gf 'git fetch'
 abbr gst 'git status'
 abbr gcam 'git commit -a -m'
 abbr gcdc 'git commit --allow-empty -m "dummy commit"'
