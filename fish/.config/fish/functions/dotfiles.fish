@@ -25,10 +25,10 @@ function dotfiles
       set current_branch (git symbolic-ref --short HEAD)
       if test $current_branch = "mainline"
         yes | fish_config theme save "latte"
-        git checkout light_mode
+        git checkout light_mode > /dev/null
       else
         yes | fish_config theme save "frappe"
-        git checkout mainline
+        git checkout mainline > /dev/null
       end
 
     case "*"
