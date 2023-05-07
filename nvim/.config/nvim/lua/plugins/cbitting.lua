@@ -30,7 +30,7 @@ return {
     name = "catppuccin",
     config = function()
       require("catppuccin").setup({
-        flavour = "latte", -- latte, frappe, macchiato, mocha
+        flavour = "frappe", -- latte, frappe, macchiato, mocha
         integrations = {
           which_key = true,
           leap = true,
