@@ -17,6 +17,9 @@ function dotfiles
       git checkout mainline
   end
 
+  git fetch
+  git pull
+
   switch $argv[1]
     case "load"
       for package in */
