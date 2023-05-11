@@ -1,12 +1,10 @@
-name: Auto Merge to light_mode
-
 on:
   push:
     branches:
       - mainline
 
 jobs:
-  merge-to-light_mode:
+  rebase-to-light_mode:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -15,14 +13,18 @@ jobs:
           ref: light_mode
           fetch-depth: 0
 
-      - name: Merge mainline
+      - name: Rebase mainline
         run: |
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "actions@github.com"
-          git merge --no-ff --no-edit origin/mainline
+          git remote add mainline_origin https://github.com/${{ github.repository }}.git
+          git fetch mainline_origin mainline
+          git rebase mainline_origin/mainline
 
       - name: Push to light_mode
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: light_mode
+          force: true
+
