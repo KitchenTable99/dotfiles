@@ -25,7 +25,7 @@ abbr gcdc 'git commit --allow-empty -m "dummy commit"'
 abbr gco 'git checkout'
 
 function should_run_nexus
-    set -l last_run_file last_nexus_run
+    set -l last_run_file ~/.config/fish/last_nexus_run
     set -l current_date (date "+%Y-%m-%d")
 
     if not test -e $last_run_file
