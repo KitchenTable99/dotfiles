@@ -2,6 +2,19 @@ return {
   -- { "ggandor/flit.nvim", enabled = false },
 
   {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "catppuccin",
+    },
+  },
+
+  -- {
+  --   "m4xshen/hardtime.nvim",
+  --   event = "VeryLazy",
+  --   opts = {}
+  -- },
+
+  {
     "nvim-telescope/telescope-bibtex.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
     keys = {
@@ -69,13 +82,6 @@ return {
         }
       })
     end,
-  },
-
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin",
-    },
   },
 
   {
