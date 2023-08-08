@@ -1,0 +1,29 @@
+on:
+  push:
+    branches:
+      - mainline
+
+jobs:
+  rebase-to-work:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          ref: work
+          fetch-depth: 0
+
+      - name: Rebase mainline
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          git remote add mainline_origin https://github.com/${{ github.repository }}.git
+          git fetch mainline_origin mainline
+          git rebase mainline_origin/mainline
+
+      - name: Push to work
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: work
+          force: true
