@@ -35,6 +35,7 @@ key_bindings:
   - { key: Key7, mods: Command, chars: "\x017" } #                ... 7
   - { key: Key8, mods: Command, chars: "\x018" } #                ... 8
   - { key: Key9, mods: Command, chars: "\x019" } #                ... 9
+  - { key: K, mods: Command, chars: "\x01F" }    # start tmux switcher
 
 shell:
   program: /usr/local/bin/fish
