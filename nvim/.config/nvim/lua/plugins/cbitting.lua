@@ -253,7 +253,7 @@ return {
     "nvim-telescope/telescope-bibtex.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
     keys = {
-      { "<leader>aa", "<cmd>Telescope bibtex format=autocite<cr>", desc = "Insert autocite" },
+      { "<leader>aa", "<cmd>Telescope bibtex format=autocite<cr>",   desc = "Insert autocite" },
       { "<leader>as", "<cmd>Telescope bibtex format=additional<cr>", desc = "Insert additional citation" },
     },
     config = function()
@@ -263,7 +263,7 @@ return {
           bibtex = {
             -- Custom format for citation label
             custom_formats = {
-              { id = "autocite", cite_marker = "\\autocite{%s}" },
+              { id = "autocite",   cite_marker = "\\autocite{%s}" },
               { id = "additional", cite_marker = ", %s" },
             },
           },
@@ -368,7 +368,7 @@ return {
 
   {
     "neovim/nvim-lspconfig",
-    ---@class PluginLspOpts
+    ---@class PluginLpsOpts
     opts = {
       ---@type lspconfig.options
       servers = {
