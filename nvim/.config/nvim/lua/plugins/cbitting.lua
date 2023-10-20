@@ -139,49 +139,6 @@ return {
     end,
   },
 
-  {
-    "napisani/nvim-github-codesearch",
-    build = "make",
-    config = function()
-      local gh_search = require("nvim-github-codesearch")
-      gh_search.setup({
-        -- an optional table entry to explicitly configure the API key to use for Github API requests.
-        -- alternatively, you can configure this parameter by export an environment variable named "GITHUB_AUTH_TOKEN"
-        github_auth_token = "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",
-
-        -- this table entry is optional, if not provided "https://api.github.com" will be used by default
-        -- otherwise this parameter can be used to configure a different Github API URL.
-        github_api_url = "https://api.github.com",
-
-        -- whether to use telescope to display the github search results or not
-        use_telescope = true,
-      })
-    end,
-  },
-
-  {
-    -- dir = "~/Documents/Coding/csgithub.nvim/",
-    "thenbe/csgithub.nvim",
-    keys = {
-      {
-        "<leader>gf",
-        function()
-          local csgithub = require("csgithub")
-
-          local url = csgithub.search({
-            includeFilename = false,
-            includeExtension = true,
-            betaSearch = true,
-          })
-
-          csgithub.open(url)
-        end,
-        mode = { "n", "v" },
-        desc = "Search Github",
-      },
-    },
-  },
-
   { "christoomey/vim-tmux-navigator" },
 
   { "nvim-treesitter/nvim-treesitter-context" },
