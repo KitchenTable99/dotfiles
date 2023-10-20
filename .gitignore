@@ -2,3 +2,4 @@ nvim/.config/nvim/lazy-lock.json
 fish/.config/fish/fish_variables
 tmux/.config/tmux/plugins/*
 fish/.config/fish/last_nexus_run
+nvim/.config/nvim/lazyvim.json
