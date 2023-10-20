@@ -1,6 +1,4 @@
 return {
-  -- { "ggandor/flit.nvim", enabled = false },
-
   {
     "LazyVim/LazyVim",
     opts = {
@@ -9,24 +7,39 @@ return {
   },
 
   {
+    "echasnovski/mini.surround",
+    opts = {
+      mappings = {
+        add = "gsa",
+        delete = "gsd",
+        find = "gsf",
+        find_left = "gsF",
+        highlight = "gsh",
+        replace = "gsr",
+        update_n_lines = "gsn",
+      },
+    },
+  },
+
+  {
     "tzachar/highlight-undo.nvim",
     opts = {
       duration = 300,
       undo = {
-        hlgroup = 'HighlightUndo',
-        mode = 'n',
-        lhs = 'u',
-        map = 'undo',
-        opts = {}
+        hlgroup = "HighlightUndo",
+        mode = "n",
+        lhs = "u",
+        map = "undo",
+        opts = {},
       },
       redo = {
-        hlgroup = 'HighlightUndo',
-        mode = 'n',
-        lhs = '<C-r>',
-        map = 'redo',
-        opts = {}
+        hlgroup = "HighlightUndo",
+        mode = "n",
+        lhs = "<C-r>",
+        map = "redo",
+        opts = {},
       },
-    highlight_for_count = true,
+      highlight_for_count = true,
     },
   },
 
@@ -56,7 +69,7 @@ return {
               { id = "additional", cite_marker = ", %s" },
             },
           },
-        }
+        },
       })
       telescope.load_extension("bibtex")
     end,
@@ -91,7 +104,7 @@ return {
             enabled = false,
             custom_bg = "NONE",
           },
-        }
+        },
       })
     end,
   },
@@ -99,41 +112,10 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     setup = function()
-      require('catppuccin')
-      require('lualine').setup({
+      require("catppuccin")
+      require("lualine").setup({
         options = {
-          theme = "catppuccin"
-        }
-      })
-    end,
-  },
-
-  {
-    "simrat39/rust-tools.nvim",
-    config = function()
-      local rt = require("rust-tools")
-      rt.setup({
-        server = {
-          on_attach = function(_, bufnr)
-            -- Hover actions
-            vim.keymap.set("n", "<C-k>", rt.hover_actions.hover_actions, { buffer = bufnr })
-            -- Code action groups
-            vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-          end,
-        },
-      })
-    end,
-  },
-
-  {
-    "saecki/crates.nvim",
-    requires = { { "nvim-lua/plenary.nvim" } },
-    config = function()
-      require("null-ls")
-      require("crates").setup({
-        null_ls = {
-          enabled = true,
-          name = "crates.nvim",
+          theme = "catppuccin",
         },
       })
     end,
@@ -157,31 +139,12 @@ return {
   },
 
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    event = "VeryLazy",
-    opts = function()
-      local nls = require("null-ls")
-      return {
-        -- nls.builtins.formatting.prettierd,
-        -- nls.builtins.formatting.stylua,
-        nls.builtins.diagnostics.flake8,
-      }
-    end,
-  },
-
-  {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       -- add tsx and treesitter
       vim.list_extend(opts.ensure_installed, {
-        "json",
         "lua",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "rust",
-        "yaml",
-        "fish"
+        "fish",
       })
     end,
   },
