@@ -13,6 +13,18 @@ set -gx DOTFILES /Users/cbitting/Documents/03\ Resources/dotfiles
 abbr c 'clear'
 abbr n 'nvim'
 abbr tn "tmux new -s (pwd | sed 's/.*\///g')"
+abbr creds 'mwinit && kinit'
+abbr i 'isengardcli'
+
+# brazil
+abbr -a bb brazil-build
+abbr -a bre brazil-runtime-exec
+abbr -a brc brazil-recursive-cmd
+abbr -a bws brazil workspace
+abbr -a bwsuse brazil workspace use --gitMode -p
+abbr -a bbr brazil-recursive-cmd brazil-build
+abbr -a bba brazil-build apollo-pkg
+abbr -a bte brazil-test-exec
 
 # git 
 abbr lg 'lazygit'
