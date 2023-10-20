@@ -7,7 +7,7 @@ starship init fish | source
 zoxide init fish | source
 
 # set env_vars
-set -gx DOTFILES /Users/cbitting/Documents/03\ Resources/dotfiles
+set -gx DOTFILES /Users/ccbitt/Documents/03\ Resources/dotfiles
 
 # abbr
 abbr c 'clear'
