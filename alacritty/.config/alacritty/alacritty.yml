@@ -13,8 +13,8 @@ window:
   padding:
     x: 6
     y: 6
-  # decorations: buttonless
-  startup_mode: SimpleFullscreen
+  decorations: buttonless
+  startup_mode: Windowed
 
 
 font:
