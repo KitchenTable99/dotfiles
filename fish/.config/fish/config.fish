@@ -5,6 +5,7 @@ end
 # initialize cli helpers
 starship init fish | source
 zoxide init fish | source
+mcfly init fish | source
 
 # set env_vars
 set -gx DOTFILES /Users/ccbitt/Documents/03\ Resources/dotfiles
