@@ -323,6 +323,8 @@ return {
 
   { "nvim-treesitter/nvim-treesitter-context" },
 
+  { "jose-elias-alvarez/typescript.nvim" },
+
   {
     "lervag/vimtex",
     module = false,
