@@ -41,4 +41,4 @@ SETUVAR fish_pager_color_selected_background:\x1d
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR fish_user_paths:/Users/cbitting/\x2ecargo/bin
+SETUVAR fish_user_paths:/usr/local/opt/ruby\x402\x2e7/bin\x1e/usr/local/opt/ruby/bin\x1e/Users/ccbitt/\x2ecargo/bin\x1e/Users/ccbitt/\x2etoolbox/bin\x1e/Users/cbitting/\x2ecargo/bin
