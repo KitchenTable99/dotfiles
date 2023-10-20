@@ -253,7 +253,7 @@ return {
     "nvim-telescope/telescope-bibtex.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
     keys = {
-      { "<leader>aa", "<cmd>Telescope bibtex format=autocite<cr>",   desc = "Insert autocite" },
+      { "<leader>aa", "<cmd>Telescope bibtex format=autocite<cr>", desc = "Insert autocite" },
       { "<leader>as", "<cmd>Telescope bibtex format=additional<cr>", desc = "Insert additional citation" },
     },
     config = function()
@@ -263,7 +263,7 @@ return {
           bibtex = {
             -- Custom format for citation label
             custom_formats = {
-              { id = "autocite",   cite_marker = "\\autocite{%s}" },
+              { id = "autocite", cite_marker = "\\autocite{%s}" },
               { id = "additional", cite_marker = ", %s" },
             },
           },
@@ -370,7 +370,6 @@ return {
     "neovim/nvim-lspconfig",
     ---@class PluginLpsOpts
     opts = {
-      autoformat = false,
       ---@type lspconfig.options
       servers = {
         pyright = {},
@@ -379,18 +378,17 @@ return {
       },
       setup = {
         kotlin_language_server = function(_, opts)
-          require('lspconfig')['kotlin_language_server'].setup {
+          require("lspconfig")["kotlin_language_server"].setup({
             on_attach = function()
-              local bemol_dir = vim.fs.find({ '.bemol' }, { upward = true, type = 'directory'})[1]
+              local bemol_dir = vim.fs.find({ ".bemol" }, { upward = true, type = "directory" })[1]
               local ws_folders_lsp = {}
               if bemol_dir then
-                local file = io.open(bemol_dir .. '/ws_root_folders', 'r')
+                local file = io.open(bemol_dir .. "/ws_root_folders", "r")
                 if file then
-
-                for line in file:lines() do
-                  table.insert(ws_folders_lsp, line)
-                end
-                file:close()
+                  for line in file:lines() do
+                    table.insert(ws_folders_lsp, line)
+                  end
+                  file:close()
                 end
               end
 
@@ -398,7 +396,7 @@ return {
                 vim.lsp.buf.add_workspace_folder(line)
               end
             end,
-          }
+          })
         end,
         -- barium for brazil-config completion
         -- https://w.amazon.com/bin/view/Barium
@@ -417,7 +415,7 @@ return {
             },
           }
         end,
-      }
+      },
     },
   },
 }
