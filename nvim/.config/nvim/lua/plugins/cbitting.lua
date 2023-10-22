@@ -330,8 +330,6 @@ return {
 
   { "christoomey/vim-tmux-navigator" },
 
-  { "nvim-treesitter/nvim-treesitter-context" },
-
   {
     "lervag/vimtex",
     module = false,
@@ -343,90 +341,5 @@ return {
     config = function()
       require("wrapping").setup()
     end,
-  },
-
-  {
-    url = "ccbitt@git.amazon.com:pkg/NinjaHooks",
-    lazy = false,
-    branch = "mainline",
-    config = function(plugin)
-      vim.opt.rtp:prepend(plugin.dir .. "/configuration/vim/amazon/brazil-config")
-      -- Make my own filetype thing to override neovim applying ".conf" file type.
-      -- You may or may not need this depending on your setup.
-      vim.filetype.add({
-        filename = {
-          ["Config"] = function()
-            vim.b.brazil_package_Config = 1
-            return "brazilconfig"
-          end,
-        },
-      })
-    end,
-  },
-
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      -- add tsx and treesitter
-      vim.list_extend(opts.ensure_installed, {
-        "lua",
-        "fish",
-      })
-    end,
-  },
-
-  {
-    "neovim/nvim-lspconfig",
-    ---@class PluginLpsOpts
-    opts = {
-      ---@type lspconfig.options
-      servers = {
-        pyright = {},
-        kotlin_language_server = {
-          settings = {},
-        },
-        barium = {},
-      },
-      setup = {
-        kotlin_language_server = function(_, opts)
-          require("lspconfig")["kotlin_language_server"].setup({
-            on_attach = function()
-              local bemol_dir = vim.fs.find({ ".bemol" }, { upward = true, type = "directory" })[1]
-              local ws_folders_lsp = {}
-              if bemol_dir then
-                local file = io.open(bemol_dir .. "/ws_root_folders", "r")
-                if file then
-                  for line in file:lines() do
-                    table.insert(ws_folders_lsp, line)
-                  end
-                  file:close()
-                end
-              end
-
-              for _, line in ipairs(ws_folders_lsp) do
-                vim.lsp.buf.add_workspace_folder(line)
-              end
-            end,
-          })
-        end,
-        -- barium for brazil-config completion
-        -- https://w.amazon.com/bin/view/Barium
-        -- toolbox install barium
-        barium = function()
-          local lspconfig = require("lspconfig")
-          local configs = require("lspconfig.configs")
-          configs.barium = {
-            default_config = {
-              cmd = { "barium" },
-              filetypes = { "brazilconfig" },
-              root_dir = function(fname)
-                return lspconfig.util.find_git_ancestor(fname)
-              end,
-              settings = {},
-            },
-          }
-        end,
-      },
-    },
   },
 }
