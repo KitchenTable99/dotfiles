@@ -96,6 +96,13 @@ return {
   },
 
   {
+    "eandrju/cellular-automaton.nvim",
+    keys = {
+      { "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", desc = "Insert autocite" },
+    },
+  },
+
+  {
     "tzachar/highlight-undo.nvim",
     opts = {
       duration = 300,
@@ -118,6 +125,8 @@ return {
   },
 
   { "sindrets/diffview.nvim" },
+
+  { "tpope/vim-sleuth" },
 
   -- This is normally installed with the LazyVim extra for the Rust lang, but I hated the commented out line, so I put it in here to manage it more closely.
   {
@@ -373,7 +382,9 @@ return {
       ---@type lspconfig.options
       servers = {
         pyright = {},
-        kotlin_language_server = {},
+        kotlin_language_server = {
+          settings = {},
+        },
         barium = {},
       },
       setup = {

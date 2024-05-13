@@ -5,17 +5,18 @@ end
 # initialize cli helpers
 starship init fish | source
 zoxide init fish | source
-mcfly init fish | source
 
 # set env_vars
 set -gx DOTFILES /Users/ccbitt/Documents/03\ Resources/dotfiles
+set -gx JAVA_HOME /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
 
 # abbr
-abbr c 'clear'
-abbr n 'nvim'
-abbr tn "tmux new -s (pwd | sed 's/.*\///g')"
+abbr c clear
+abbr n nvim
 abbr creds 'mwinit && kinit'
-abbr i 'isengardcli'
+abbr i isengardcli
+abbr hs "eval (history | fzf)"
+abbr mwauth "security find-generic-password -a $USER -l 'Midway PIN' -w /Users/$USER/Library/Keychains/login.keychain-db | mwinit"
 
 # brazil
 abbr -a bb brazil-build
@@ -28,10 +29,12 @@ abbr -a bba brazil-build apollo-pkg
 abbr -a bte brazil-test-exec
 
 # git 
-abbr lg 'lazygit'
+abbr lg lazygit
 abbr gp 'git push'
 abbr gl 'git pull'
 abbr gf 'git fetch'
+abbr gb 'git branch'
+abbr gcp 'git cherry-pick'
 abbr gst 'git status'
 abbr gcam 'git commit -a -m'
 abbr gcdc 'git commit --allow-empty -m "dummy commit"'
@@ -42,14 +45,14 @@ function should_run_nexus
     set -l current_date (date "+%Y-%m-%d")
 
     if not test -e $last_run_file
-        echo $current_date > $last_run_file
+        echo $current_date >$last_run_file
         return 0
     end
 
     set -l last_run_date (cat $last_run_file)
 
     if test $last_run_date != $current_date
-        echo $current_date > $last_run_file
+        echo $current_date >$last_run_file
         return 0
     end
 
@@ -57,5 +60,5 @@ function should_run_nexus
 end
 
 if should_run_nexus
-  nexus
+    nexus
 end

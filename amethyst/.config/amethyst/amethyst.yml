@@ -15,18 +15,18 @@
 
 # layouts - Ordered list of layouts to use by layout key (default tall, wide, fullscreen, and column).
 layouts:
-  - tall
+  # - tall
   - fullscreen
   # - tall-right
-  - wide
-  # - two-pane
-  # - middle-wide
+  # - wide
+  - two-pane
+  - middle-wide
   # - 3column-left
   # - 3column-middle
   # - 3column-right
   # - 4column-left
   # - 4column-right
-  - column
+  # - column
   # - row
   # - floating
   # - widescreen-tall
@@ -83,12 +83,12 @@ expand-main:
 # Increase the number of windows in the main pane. Note that not all layouts respond to this command.
 increase-main:
   mod: mod1
-  key: ','
+  key: ","
 
 # Decrease the number of windows in the main pane. Note that not all layouts respond to this command.
 decrease-main:
   mod: mod1
-  key: '.'
+  key: "."
 
 # General purpose command for custom layouts. Functionality is layout-dependent.
 # command1:
@@ -174,7 +174,7 @@ swap-main:
 
 throw-screen-1:
   mod: mod1
-  key: '1'
+  key: "1"
 
 focus-screen-1:
   mod: mod1
@@ -182,7 +182,7 @@ focus-screen-1:
 
 throw-screen-2:
   mod: mod1
-  key: '2'
+  key: "2"
 
 focus-screen-2:
   mod: mod1
