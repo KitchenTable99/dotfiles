@@ -21,8 +21,10 @@ function tt
 
     # create a session if it doesn't exist
     if not tmux has-session -t $ticket_num 2>/dev/null
-        tmux new-session -d -s $ticket_num -c $HOME
-        tmux new-window -t $ticket_num -c $HOME
+        set tmux_home "/Users/ccbitt/Documents/02 Areas/oncall/$ticket_num"
+        mkdir -p $tmux_home
+        tmux new-session -d -s $ticket_num -c $tmux_home
+        tmux new-window -t $ticket_num -c $tmux_home
         tmux send-keys -t $ticket_num:2 "ssh clouddesk" C-m
         tmux select-window -t $ticket_num:1
     end
