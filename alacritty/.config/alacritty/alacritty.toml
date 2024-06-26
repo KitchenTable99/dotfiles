@@ -1,4 +1,6 @@
-import = ["/Users/ccbitt/.config/alacritty/catppuccin/catppuccin-frappe.toml"]
+import = [
+  "/Users/cbitting/Documents/03 Resources/dotfiles/alacritty/.config/alacritty/catppuccin/catppuccin-frappe.toml",
+]
 live_config_reload = true
 
 [env]
